@@ -5,11 +5,11 @@
         {{ form.csrf_token }}
         {% include "form_errors.html" %}
         <div class="form-group">
-            <label for="content">답변내용</label>
+            <label for="content">Edit Comment</label>
             <textarea class="form-control" name="content" id="content"
                       rows="10">{{ form.content.data or '' }}</textarea>
         </div>
-        <button type="submit" class="btn btn-primary">저장하기</button>
+        <button type="submit" class="btn btn-primary">Save</button>
     </form>
 </div>
 {% endblock %}

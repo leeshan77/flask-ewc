@@ -52,7 +52,7 @@ def modify(question_id):
         form = QuestionForm()
         if form.validate_on_submit():
             form.populate_obj(question)
-            question.modify_date = datetime.now()  # 수정일시 저장
+            question.modify_date = datetime.now() # 수정일시 저장
             db.session.commit()
             return redirect(url_for('question.detail', question_id=question_id))
     else:
