@@ -7,8 +7,8 @@ from flask_ckeditor import CKEditor, CKEditorField
 
 class QuestionForm(FlaskForm):
     subject = StringField('Title', validators=[DataRequired('제목은 필수입력 항목입니다.')])
-    # content = TextAreaField('Content', validators=[DataRequired('내용은 필수입력 항목입니다.')])
-    content = CKEditorField('Content', validators=[DataRequired('내용은 필수입력 항목입니다.')])
+    content = TextAreaField('Content', validators=[DataRequired('내용은 필수입력 항목입니다.')])
+    # content = CKEditorField('Content', validators=[DataRequired('내용은 필수입력 항목입니다.')])
 
 class AnswerForm(FlaskForm):
     content = TextAreaField('Comment', validators=[DataRequired('내용은 필수입력 항목입니다.')])
