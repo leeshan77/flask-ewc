@@ -13,6 +13,7 @@
 
         <input type="text" id="word">
         <button type="button" class="btn btn-primary" onclick="openDictionary()">Search</button>
+        <button type="button" class="btn btn-primary" onclick="openPapago()">Translate</button>
 
     </form>
 </div>
@@ -21,6 +22,16 @@
     var inputWord = document.querySelector("#word");
     function openDictionary() {
         var newWin = window.open("https://dict.naver.com/enendict/english/#/search?query=" + inputWord.value, "", "left=600, top=0, width=500, height=600");
+        if (newWin == null) {
+            alert("팝업이 차단되어 있습니다. 팝업 차단을 해제하고 새로고침해 주세요.");
+        }
+        window.onload = openDictionary;
+        document.querySelector("#word").value = "";
+    }
+
+    function openPapago() {
+        var newWin = window.open("https://papago.naver.com/?sk=auto&tk=ko&hn=0&st="
+                     + inputWord.value, "", "left=600, top=0, width=500, height=600");
         if (newWin == null) {
             alert("팝업이 차단되어 있습니다. 팝업 차단을 해제하고 새로고침해 주세요.");
         }
