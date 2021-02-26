@@ -43,6 +43,7 @@ def create():
         db.session.add(question)
         db.session.commit()
         return redirect(url_for('main.index'))
+
     return render_template('question/question_form.html', form=form)
 
 @bp.route('/modify/<int:question_id>', methods=('GET', 'POST'))

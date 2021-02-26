@@ -90,9 +90,28 @@
             <textarea {% if not g.user %}disabled{% endif %}
                     name="content" id="content" class="form-control" rows="10"></textarea>
         </div>
-        <input type="submit" value="Save Comment" class="btn btn-primary">
+        <!-- <input type="submit" value="Save Comment" class="btn btn-primary"> -->
+        <button type="submit" class="btn btn-primary">Save Comment</button>
+
+        <input type="text" id="word">
+        <button type="button" class="btn btn-primary" onclick="openDictionary()">Search</button>
+
     </form>
+
 </div>
+
+<script>
+    var inputWord = document.querySelector("#word");
+    function openDictionary() {
+        var newWin = window.open("https://dict.naver.com/enendict/english/#/search?query=" + inputWord.value, "", "left=600, top=0, width=500, height=600");
+        if (newWin == null) {
+            alert("팝업이 차단되어 있습니다. 팝업 차단을 해제하고 새로고침해 주세요.");
+        }
+        window.onload = openDictionary;
+        document.querySelector("#word").value = "";
+    }
+</script>
+
 {% endblock %}
 
 {% block script %}
